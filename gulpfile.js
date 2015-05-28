@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var angularFilesort = require('gulp-angular-filesort');
 var jshint = require('gulp-jshint');
 var notify = require('gulp-notify');
+var liveReload = require('gulp-livereload');
 
 var onError = function(err) {
     console.log(err);
@@ -42,4 +43,14 @@ gulp.task('concat', function() {
         .pipe(notify({
             message: 'Concat tas complete!'
         }));
+});
+
+gulp.task('watch', function() {
+
+    gulp.watch(['./app/*.js', './app/*/*.js'], ['jshint', 'concat']);
+
+    liveReload.listen();
+
+    gulp.watch(['./app/**', './assets/**', './index.html']).on('change', liveReload.changed);
+
 });
