@@ -31,3 +31,15 @@ gulp.task('jshint', function() {
             return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
         }));
 });
+
+gulp.task('concat', function() {
+    return gulp.src(['./app/*.js', './app/*/*.js'])
+        .pipe(plumber({
+            errorHandler: onError
+        }))
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest('./js/'))
+        .pipe(notify({
+            message: 'Concat tas complete!'
+        }));
+});
