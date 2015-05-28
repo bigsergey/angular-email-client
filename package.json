@@ -1,0 +1,27 @@
+{
+  "name": "angular-email-client",
+  "version": "0.0.0",
+  "description": "Simple angular e-mail client.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigsergey/angular-email-client.git"
+  },
+  "keywords": [
+    "angular",
+    "email",
+    "client"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bigsergey/angular-email-client/issues"
+  },
+  "homepage": "https://github.com/bigsergey/angular-email-client#readme",
+  "dependencies": {
+    "gulp": "^3.8.11"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "angular-email-client",
+  "version": "0.0.0",
+  "homepage": "https://github.com/bigsergey/angular-email-client",
+  "description": "Simple angular e-mail client.",
+  "keywords": [
+    "angular",
+    "email",
+    "client"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
