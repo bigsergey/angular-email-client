@@ -1,4 +1,64 @@
-html, body {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 400;
+@import url('./normalize.css');
+html,
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+ul.mail.list {
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+}
+
+ul.mail.list li a:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+ul.mail.list a {
+    font-size: 0;
+}
+
+ul.mail.list a > div {
+    display: inline-block;
+    font-size: 14px;
+}
+
+ul.mail.list .sender {
+    width: 25%;
+}
+
+ul.mail.list .content {
+    width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	color: grey;
+}
+
+ul.mail.list .content .title {
+	color: white;
+}
+
+ul.mail.list .delete {
+    width: 10%;
+    text-align: center;
+}
+
+.default.theme ul.mail.list li {
+    background-color: rgba(5, 5, 5, .85);
+    border-bottom: 1px solid grey;
+}
+
+.default.theme ul.mail.list li:hover {
+    background-color: rgba(5, 5, 5, .55);
+}
+
+
+.default.theme ul.mail.list li a {
+	color: white;
 }

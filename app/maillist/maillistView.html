@@ -1,10 +1,14 @@
 <h1>{{maillist.title}}</h1>
 <search></search>
-<ul>
+<ul class="mail list">
 	<li ng-repeat="email in maillist.emails">
 		<a ui-sref="app.view({ emailid: email.id })">
-			{{email.title}}
-			{{email.content}}
+			<div class="sender">{{email.sender}}</div>
+			<div class="content">
+				<span class="title">{{email.title}}</span>
+				<span class="text"> - {{email.content}}</span>
+			</div>
+			<div class="delete">Delete</div>
 		</a>
 	</li>
 </ul>

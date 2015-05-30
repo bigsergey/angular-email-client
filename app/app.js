@@ -29,7 +29,7 @@
                 url: '',
                 views: {
                     'body': {
-                        template: '<div ui-view></div>'
+                        template: '<div class="default theme" ui-view></div>'
                     }
                 },
                 controller: module.controller.name + ' as app'
