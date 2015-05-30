@@ -8,7 +8,8 @@
 
             'angularEmailClient.maillist',
             'angularEmailClient.mailview',
-            'angularEmailClient.createmail'
+            'angularEmailClient.createmail',
+            'angularEmailClient.configview'
         ],
         config: {
             providers: ['$stateProvider', '$urlRouterProvider']
