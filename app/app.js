@@ -4,6 +4,8 @@
         dependencies: [
             'ui.router',
 
+            'angularEmailClient.search',
+
             'angularEmailClient.maillist',
             'angularEmailClient.mailview',
             'angularEmailClient.createmail'
