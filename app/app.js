@@ -4,7 +4,9 @@
         dependencies: [
             'ui.router',
 
-            'angularEmailClient.maillist'
+            'angularEmailClient.maillist',
+            'angularEmailClient.mailview',
+            'angularEmailClient.createmail'
         ],
         config: {
             providers: ['$stateProvider', '$urlRouterProvider']
@@ -16,12 +18,12 @@
     };
 
     var AppConfig = function($locationProvider, $stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/app/inbox');
+        $urlRouterProvider.otherwise('/inbox');
 
         $stateProvider
             .state('app', {
                 abstract: true,
-                url: '/app',
+                url: '',
                 views: {
                     'body': {
                         template: '<div ui-view></div>'

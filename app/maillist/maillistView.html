@@ -1,7 +1,9 @@
 <h1>{{maillist.title}}</h1>
 <ul>
-    <li ng-repeat="email in maillist.emails">
-    	{{email.title}}
-    	{{email.content}}
-    </li>
+	<li ng-repeat="email in maillist.emails">
+		<a ui-sref="app.view({ emailid: email.id })">
+			{{email.title}}
+			{{email.content}}
+		</a>
+	</li>
 </ul>

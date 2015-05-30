@@ -7,7 +7,7 @@
         },
         maillistController: {
             name: 'maillistController',
-            injectables: []
+            injectables: ['page', 'emails']
         }
     };
     var MaillistConfig = function($stateProvider, $urlRouterProvider) {
@@ -64,6 +64,8 @@
         self.title = page.title;
         self.emails = emails;
     };
+
+    maillistController.$inject = module.maillistController.injectables;
 
     angular.module(module.name, module.dependencies)
         .config(MaillistConfig)
