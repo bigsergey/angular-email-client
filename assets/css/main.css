@@ -1,4 +1,6 @@
 @import url('./normalize.css');
+@import url('./simple-grid.css');
+
 html,
 body {
     font-family: 'Source Sans Pro', sans-serif;
@@ -8,11 +10,11 @@ body {
 
 ul.mail.list {
     list-style-type: none;
-    width: 100%;
     padding: 0;
+	color: white;
 }
 
-ul.mail.list li a:before {
+ul.mail.list li:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
@@ -20,20 +22,19 @@ ul.mail.list li a:before {
 }
 
 ul.mail.list a {
-    font-size: 0;
-}
-
-ul.mail.list a > div {
-    display: inline-block;
-    font-size: 14px;
+    text-decoration: none;
 }
 
 ul.mail.list .sender {
-    width: 25%;
+	width: 35%;
+	display: inline-block;
+	float: left;
+	overflow: hidden;
 }
 
 ul.mail.list .content {
     width: 65%;
+    display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -45,8 +46,8 @@ ul.mail.list .content .title {
 }
 
 ul.mail.list .delete {
-    width: 10%;
     text-align: center;
+    cursor: pointer;
 }
 
 .default.theme ul.mail.list li {
@@ -54,7 +55,7 @@ ul.mail.list .delete {
     border-bottom: 1px solid grey;
 }
 
-.default.theme ul.mail.list li:hover {
+.default.theme ul.mail.list a:hover {
     background-color: rgba(5, 5, 5, .55);
 }
 
