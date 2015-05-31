@@ -19,6 +19,10 @@ ul.mail.list {
 	color: white;
 }
 
+ul.mail.list li.new {
+	font-weight: bolder;
+}
+
 ul.mail.list li:before {
   content: '';
   display: inline-block;
