@@ -6,6 +6,7 @@
 
             'angularEmailClient.search',
             'angularEmailClient.sidebar',
+            'angularEmailClient.validateEmails',
 
             'angularEmailClient.maillist',
             'angularEmailClient.mailview',
