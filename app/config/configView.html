@@ -1,1 +1,8 @@
-<div>config view</div>
+<div>
+	<h3>Change color theme:</h3>
+	<div class="colors">
+		<div ng-repeat="color in configview.colors" class="color {{color}}"></div>
+	</div>
+	<h3>Set update time(in seconds):</h3>
+	<input type="number" min="1" ng-model="configview.updateTime"/>
+</div>

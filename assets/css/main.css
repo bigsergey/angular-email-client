@@ -96,3 +96,25 @@ ul.mail.list .delete {
 .mail.view textarea.ng-invalid.ng-dirty {
     border-color: red;
 }
+
+
+.colors > .color {
+	display: inline-block;
+	height: 60px;
+	width: 60px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.colors .color.red {
+	background-color: red;
+}
+
+.colors .color.black {
+	background-color: black;
+}
+
+.colors .color.blue {
+	background-color: blue;
+}
+

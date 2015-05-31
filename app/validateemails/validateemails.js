@@ -14,10 +14,10 @@ angular.module('angularEmailClient.validateEmails', [])
                         var valid = true;
 
                         arr.forEach(function (value) {
-                        	if (!regex.test(value) && value !== '') {
-                            	valid = false;
-                            	return false;
-                        	}
+                            if (!regex.test(value) && value !== '') {
+                                valid = false;
+                                return false;
+                            }
                         });
 
                         return valid;

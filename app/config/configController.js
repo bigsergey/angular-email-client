@@ -22,7 +22,11 @@
 
     configviewConfig.$provide = module.config.providers;
 
-    var configviewController = function() {};
+    var configviewController = function() {
+        var self = this;
+        self.colors = ['black', 'red', 'blue'];
+        self.updateTime = 1;
+    };
 
     configviewController.$inject = module.configviewController.injectables;
 
