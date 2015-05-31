@@ -1,14 +1,15 @@
-<h1>{{maillist.title}}</h1>
-<search></search>
-<ul class="mail list">
-	<li ng-repeat="email in maillist.emails">
-		<a ui-sref="app.view({ emailid: email.id })">
-			<div class="sender">{{email.sender}}</div>
-			<div class="content">
-				<span class="title">{{email.title}}</span>
-				<span class="text"> - {{email.content}}</span>
-			</div>
-			<div class="delete">Delete</div>
-		</a>
-	</li>
-</ul>
+<div>
+    <search></search>
+    <ul class="mail list">
+        <li class="grid" ng-repeat="email in maillist.emails track by $index">
+            <a class="col-7-8" ui-sref="app.view({ emailid: email.id })">
+                <div class="sender">{{email.sender}}</div>
+                <div class="content">
+                    <span class="title">{{email.title}}</span>
+                    <span class="text"> - {{email.content}}</span>
+                </div>
+            </a>
+            <div class="delete col-1-8" ng-click="maillist.deleteEmail(email.id, $index)">Delete</div>
+        </li>
+    </ul>
+</div>
