@@ -83,3 +83,12 @@ ul.mail.list .delete {
 .sidebar .active {
 	font-weight: bolder;
 }
+
+
+.mail.view input, .mail.view textarea {
+	width: 100%;
+}
+
+.mail.view textarea {
+	min-height: 500px;
+}

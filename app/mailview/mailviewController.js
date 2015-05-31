@@ -7,7 +7,7 @@
         },
         mailviewController: {
             name: 'mailviewController',
-            injectables: ['email']
+            injectables: ['email', '$http', '$state']
         }
     };
     var MailviewConfig = function($stateProvider, $urlRouterProvider) {
@@ -24,8 +24,8 @@
                             })
                             .then(function(data) {
                                 return data.data;
-                            }, function () {
-                            	return {};
+                            }, function() {
+                                return {};
                             });
                     }
                 }
@@ -34,15 +34,37 @@
 
     MailviewConfig.$provide = module.config.providers;
 
-    var mailviewController = function (email) {
-    	var self = this;
-    	self.email = email;
+    var mailviewController = function(email, $http, $state) {
+        var self = this;
+        self.email = email;
+
+        if (!self.email.read) {
+            $http.put('/api/emails/' + self.email.id, {
+                    read: true
+                })
+                .success(function() {
+                    self.email.read = true;
+                });
+        }
+
+        self.deleteMe = function() {
+            if (confirm('Are you sure you want to delete this email?')) {
+                $http.delete('/api/emails/' + self.email.id)
+                    .success(function(data) {
+                        $state.go('app.inbox');
+                    })
+                    .error(function(data) {
+                        alert('Email not deleted!');
+                    });
+            }
+        };
+
     };
 
     mailviewController.$inject = module.mailviewController.injectables;
 
     angular.module(module.name, module.dependecies)
-    	.config(MailviewConfig)
-    	.controller(module.mailviewController.name, mailviewController);
+        .config(MailviewConfig)
+        .controller(module.mailviewController.name, mailviewController);
 
 }());

@@ -7,7 +7,7 @@
         },
         maillistController: {
             name: 'maillistController',
-            injectables: ['page', 'emails', '$http']
+            injectables: ['page', 'emails', '$http', '$timeout']
         }
     };
     var MaillistConfig = function($stateProvider, $urlRouterProvider) {
@@ -59,7 +59,7 @@
     MaillistConfig.$provide = module.config.providers;
 
 
-    var maillistController = function(page, emails, $http) {
+    var maillistController = function(page, emails, $http, $timeout) {
         var self = this;
         self.title = page.title;
         self.emails = emails;
