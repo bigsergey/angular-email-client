@@ -5,6 +5,7 @@
             'ui.router',
 
             'angularEmailClient.search',
+            'angularEmailClient.sidebar',
 
             'angularEmailClient.maillist',
             'angularEmailClient.mailview',
