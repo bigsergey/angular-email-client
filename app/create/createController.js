@@ -30,8 +30,12 @@
                                     newEmail.title = 'Re: ' + oldEmail.title;
                                     newEmail.content = (new Date(oldEmail.received)) + ' ' + oldEmail.sender + ':\n' + oldEmail.content + '\n-------------------------------------\n';
                                     return newEmail;
-                                }, function () {
-                                    return {};
+                                }, function() {
+                                    return {
+                                        'title': '',
+                                        'content': '',
+                                        'receivers': []
+                                    };
                                 });
                         } else {
                             return {
@@ -47,20 +51,20 @@
 
     createmailConfig.$provide = module.config.providers;
 
-    var createmailController = function (email, $http, $state) {
-    	var self = this;
-    	self.email = email;
+    var createmailController = function(email, $http, $state) {
+        var self = this;
+        self.email = email;
 
-        self.sendEmail = function () {
+        self.sendEmail = function() {
             self.email.receivers = self.email.receivers.split(/;|,| /g);
             timestamp = "" + Date.now();
             self.email.sent = timestamp;
             self.email.id = timestamp;
             $http.post('/api/sent', self.email)
-                .success(function () {
+                .success(function() {
                     $state.go('app.sent');
                 })
-                .error(function (data) {
+                .error(function(data) {
                     alert('Something goes wrong!' + data);
                 });
 
@@ -70,7 +74,7 @@
     createmailController.$inject = module.createmailController.injectables;
 
     angular.module(module.name, module.dependecies)
-    	.config(createmailConfig)
-    	.controller(module.createmailController.name, createmailController);
+        .config(createmailConfig)
+        .controller(module.createmailController.name, createmailController);
 
 }());
