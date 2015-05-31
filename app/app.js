@@ -7,6 +7,7 @@
             'angularEmailClient.search',
             'angularEmailClient.sidebar',
             'angularEmailClient.validateEmails',
+            'angularEmailClient.colortheme',
 
             'angularEmailClient.maillist',
             'angularEmailClient.mailview',

@@ -58,16 +58,16 @@ ul.mail.list .delete {
     cursor: pointer;
 }
 
-.default.theme ul.mail.list li {
+ul.mail.list li {
     background-color: rgba(5, 5, 5, .85);
     border-bottom: 1px solid grey;
 }
 
-.default.theme ul.mail.list a:hover {
+ul.mail.list a:hover {
     background-color: rgba(5, 5, 5, .55);
 }
 
-.default.theme ul.mail.list li a {
+ul.mail.list li a {
     color: white;
 }
 
@@ -107,7 +107,7 @@ ul.mail.list .delete {
 }
 
 .colors > .color.active {
-	border: 3px solid grey;
+	border: 3px solid white;
 }
 
 .colors .color.red {
@@ -122,3 +122,15 @@ ul.mail.list .delete {
 	background-color: blue;
 }
 
+
+.theme.red {
+	background-color: red;
+}
+
+.theme.black {
+	background-color: gray;
+}
+
+.theme.blue {
+	background-color: blue;
+}

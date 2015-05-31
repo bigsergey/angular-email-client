@@ -7,7 +7,7 @@
         },
         configviewController: {
             name: 'configviewController',
-            injectables: []
+            injectables: ['$scope']
         }
     };
     var configviewConfig = function($stateProvider, $urlRouterProvider) {
@@ -22,7 +22,7 @@
 
     configviewConfig.$provide = module.config.providers;
 
-    var configviewController = function() {
+    var configviewController = function($scope) {
         var self = this;
         self.colors = ['black', 'red', 'blue'];
 
@@ -31,7 +31,7 @@
 
         self.setUserColor = function(color) {
             self.userColor = color;
-            localStorage.setItem('userColor', self.userColor);
+            $scope.$emit('colortheme:updateColor', color);
         };
 
         self.setUpdateTime = function() {
