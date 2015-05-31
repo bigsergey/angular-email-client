@@ -7,7 +7,7 @@
         },
         createmailController: {
             name: 'createmailController',
-            injectables: ['email']
+            injectables: ['email', '$http', '$state']
         }
     };
     var createmailConfig = function($stateProvider, $urlRouterProvider) {
@@ -24,12 +24,21 @@
                                     url: '/api/emails/' + $stateParams.emailid
                                 })
                                 .then(function(data) {
-                                    return data.data;
+                                    var oldEmail = data.data;
+                                    var newEmail = {};
+                                    newEmail.receivers = oldEmail.sender;
+                                    newEmail.title = 'Re: ' + oldEmail.title;
+                                    newEmail.content = (new Date(oldEmail.received)) + ' ' + oldEmail.sender + ':\n' + oldEmail.content + '\n-------------------------------------\n';
+                                    return newEmail;
                                 }, function () {
                                     return {};
                                 });
                         } else {
-                            return {};
+                            return {
+                                'title': '',
+                                'content': '',
+                                'receivers': []
+                            };
                         }
                     }
                 }
@@ -38,9 +47,24 @@
 
     createmailConfig.$provide = module.config.providers;
 
-    var createmailController = function (email) {
+    var createmailController = function (email, $http, $state) {
     	var self = this;
     	self.email = email;
+
+        self.sendEmail = function () {
+            self.email.receivers = self.email.receivers.split(/;|,| /g);
+            timestamp = "" + Date.now();
+            self.email.sent = timestamp;
+            self.email.id = timestamp;
+            $http.post('/api/sent', self.email)
+                .success(function () {
+                    $state.go('app.sent');
+                })
+                .error(function (data) {
+                    alert('Something goes wrong!' + data);
+                });
+
+        };
     };
 
     createmailController.$inject = module.createmailController.injectables;

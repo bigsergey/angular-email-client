@@ -7,7 +7,7 @@
         },
         maillistController: {
             name: 'maillistController',
-            injectables: ['page', 'emails', '$http', '$timeout']
+            injectables: ['page', 'emails', '$http', '$timeout', '$filter']
         }
     };
     var MaillistConfig = function($stateProvider, $urlRouterProvider) {
@@ -59,16 +59,18 @@
     MaillistConfig.$provide = module.config.providers;
 
 
-    var maillistController = function(page, emails, $http, $timeout) {
+    var maillistController = function(page, emails, $http, $timeout, $filter) {
         var self = this;
         self.title = page.title;
         self.emails = emails;
 
-        self.deleteEmail = function(emailid, index) {
+        self.deleteEmail = function(emailid) {
             if (confirm('Are you sure you want to delete this email?')) {
                 $http.delete('/api/emails/' + emailid)
                     .success(function(data) {
-                        self.emails.splice(index, 1);
+                        self.emails = $filter(self.emails, function(element) {
+                            return element.id !== emailid;
+                        });
                     })
                     .error(function(data) {
                         alert('Email not deleted!');
