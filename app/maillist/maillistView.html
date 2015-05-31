@@ -1,7 +1,7 @@
 <div>
-    <search></search>
+    <!-- <search></search> -->
     <ul class="mail list">
-        <li class="grid" ng-repeat="email in maillist.emails track by $index">
+        <li class="grid" ng-repeat="email in maillist.emails track by $index" ng-class="{'new': email.read}">
             <a class="col-7-8" ui-sref="app.view({ emailid: email.id })">
                 <div class="sender">{{email.sender}}</div>
                 <div class="content">
