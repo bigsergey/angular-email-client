@@ -15,7 +15,6 @@ ul.mail.list {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    color: white;
 }
 
 ul.mail.list li.new {
@@ -49,8 +48,16 @@ ul.mail.list .content {
     color: grey;
 }
 
-ul.mail.list .content .title {
+ul.mail.list li.new .content .title {
     color: white;
+}
+
+ul.mail.list .content .text {
+    font-size: 11px;
+}
+
+ul.mail.list .content .title {
+    font-weight: bolder;
 }
 
 ul.mail.list .content .title .highlighted {
@@ -60,6 +67,8 @@ ul.mail.list .content .title .highlighted {
 ul.mail.list .delete {
     text-align: center;
     cursor: pointer;
+    color: white;
+    font-weight: normal;
 }
 
 ul.mail.list li {
@@ -71,8 +80,12 @@ ul.mail.list a:hover {
     background-color: rgba(5, 5, 5, .55);
 }
 
-ul.mail.list li a {
+ul.mail.list li.new a {
     color: white;
+}
+
+ul.mail.list li a {
+    color: grey;
 }
 
 .sidebar a {
@@ -99,6 +112,12 @@ ul.mail.list li a {
 .mail.view.ng-submitted textarea.ng-invalid,
 .mail.view textarea.ng-invalid.ng-dirty {
     border-color: red;
+    background: #E67451;
+}
+
+.searcher input[type="text"]{
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 
@@ -114,27 +133,14 @@ ul.mail.list li a {
 	border: 3px solid white;
 }
 
-.colors .color.red {
-	background-color: red;
+.theme.red, .colors .color.red {
+	background-color: #C35817;
 }
 
-.colors .color.black {
-	background-color: black;
+.theme.black, .colors .color.black {
+	background-color: #B6B6B4;
 }
 
-.colors .color.blue {
-	background-color: blue;
-}
-
-
-.theme.red {
-	background-color: red;
-}
-
-.theme.black {
-	background-color: gray;
-}
-
-.theme.blue {
-	background-color: blue;
+.theme.blue, .colors .color.blue {
+	background-color: #1569C7;
 }

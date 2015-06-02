@@ -7,6 +7,7 @@ angular.module('angularEmailClient.search', [])
             },
             templateUrl: './app/search/searchView.html',
             link: function(scope, element, attrs) {
+
             }
         };
     });
