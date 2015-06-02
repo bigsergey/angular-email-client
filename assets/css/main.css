@@ -53,6 +53,10 @@ ul.mail.list .content .title {
     color: white;
 }
 
+ul.mail.list .content .title .highlighted {
+    color: yellow;
+}
+
 ul.mail.list .delete {
     text-align: center;
     cursor: pointer;

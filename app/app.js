@@ -9,6 +9,8 @@
             'angularEmailClient.validateEmails',
             'angularEmailClient.colortheme',
 
+            'angularEmailClient.searchHighlight',
+
             'angularEmailClient.maillist',
             'angularEmailClient.mailview',
             'angularEmailClient.createmail',
