@@ -115,12 +115,6 @@ ul.mail.list li a {
     background: #E67451;
 }
 
-.searcher input[type="text"]{
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-
 .colors > .color {
 	display: inline-block;
 	height: 60px;
@@ -143,4 +137,27 @@ ul.mail.list li a {
 
 .theme.blue, .colors .color.blue {
 	background-color: #1569C7;
+}
+
+.searcher {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.searcher input[type="text"]{
+    width: 100%;
+}
+
+.searcher .autocomplete {
+    position: absolute;
+}
+
+.searcher .autocomplete .tag {
+    background-color: white;
+    padding: 5px;
+}
+
+.searcher .autocomplete .tag.active {
+    background-color: blue;
+    color: white;
 }
