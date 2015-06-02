@@ -7,7 +7,7 @@
         },
         maillistController: {
             name: 'maillistController',
-            injectables: ['page', 'emails', '$http', '$timeout', '$filter']
+            injectables: ['page', 'emails', '$http', '$interval', '$filter']
         }
     };
     var MaillistConfig = function($stateProvider, $urlRouterProvider) {
@@ -59,10 +59,12 @@
     MaillistConfig.$provide = module.config.providers;
 
 
-    var maillistController = function(page, emails, $http, $timeout, $filter) {
+    var maillistController = function(page, emails, $http, $interval, $filter) {
         var self = this;
         self.title = page.title;
         self.emails = emails;
+
+        updateTime = +(localStorage.getItem('updateTime') || 5000);
 
         self.deleteEmail = function(emailid) {
             if (confirm('Are you sure you want to delete this email?')) {
@@ -77,6 +79,18 @@
                     });
             }
         };
+
+        updateEmails = function() {
+            $http({
+                    method: 'get',
+                    url: '/api/emails'
+                })
+                .then(function(data) {
+                    self.emails = data.data;
+                });
+        };
+
+        $interval(updateEmails, (updateTime * 60000));
     };
 
     maillistController.$inject = module.maillistController.injectables;
