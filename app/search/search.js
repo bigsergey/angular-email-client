@@ -11,7 +11,7 @@ angular.module('angularEmailClient.search', [])
             link: function(scope, element, attrs) {
 
             }
-        }
+        };
     })
     .directive('search', function() {
         return {
@@ -21,7 +21,7 @@ angular.module('angularEmailClient.search', [])
             },
             templateUrl: './app/search/searchView.html',
             link: function(scope, element, attrs) {
-                scope.searchHistory = []
+                scope.searchHistory = [];
                 element.bind("keydown keypress", function(event) {
                     if (event.which === 13) {
                         if (scope.searchHistory.indexOf(scope.bindModel)) {
