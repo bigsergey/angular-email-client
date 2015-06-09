@@ -155,9 +155,10 @@ ul.mail.list li a {
 .searcher .autocomplete .tag {
     background-color: white;
     padding: 5px;
+    cursor: pointer;
 }
 
-.searcher .autocomplete .tag.active {
+.searcher .autocomplete .tag:hover {
     background-color: blue;
     color: white;
 }
