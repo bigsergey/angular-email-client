@@ -1,0 +1,14 @@
+<div>
+    <search ng-model="search"></search>
+    <ul class="mail list">
+        <li class="grid" ng-repeat="email in maillist.emails | filter:{title:search} | orderBy:'received':true" ng-class="{'new': !email.read}">
+            <a class="col-7-8">
+                <div class="sender">{{email.receivers.toString()}}</div>
+                <div class="content">
+                    <span class="title" ng-bind-html="email.title | highlight:search"></span>
+                    <span class="text"> - {{email.content}}</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

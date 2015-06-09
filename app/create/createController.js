@@ -57,7 +57,7 @@
 
         self.sendEmail = function() {
             self.email.receivers = self.email.receivers.split(/;|,| /g);
-            timestamp = "" + Date.now();
+            var timestamp = "" + Date.now();
             self.email.sent = timestamp;
             self.email.id = timestamp;
             $http.post('/api/sent', self.email)

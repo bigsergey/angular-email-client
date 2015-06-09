@@ -19,7 +19,7 @@ gulp.task('jshint', function() {
         .pipe(plumber({
             errorHandler: onError
         }))
-        .pipe(jshint())
+        .pipe(jshint('.jshintrc'))
         .pipe(notify(function(file) {
 
             if (file.jshint.success) {
