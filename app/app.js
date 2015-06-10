@@ -11,7 +11,8 @@
 
             'angularEmailClient.searchHighlight',
 
-            'angularEmailClient.maillist',
+            'angularEmailClient.inboxlist',
+            'angularEmailClient.sentlist',
             'angularEmailClient.mailview',
             'angularEmailClient.createmail',
             'angularEmailClient.configview'

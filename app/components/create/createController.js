@@ -14,7 +14,7 @@
         $stateProvider
             .state('app.create', {
                 url: '/create/:emailid',
-                templateUrl: './app/create/createView.html',
+                templateUrl: './app/components/create/createView.html',
                 controller: module.createmailController.name + ' as createmail',
                 resolve: {
                     email: function($http, $stateParams) {

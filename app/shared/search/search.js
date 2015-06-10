@@ -5,7 +5,7 @@ angular.module('angularEmailClient.search', [])
             scope: {
                 bindModel: '=ngModel'
             },
-            templateUrl: './app/search/searchView.html',
+            templateUrl: './app/shared/search/searchView.html',
             link: function(scope, element, attrs) {
                 scope.searchHistory = [];
                 scope.hideAutocomplete = true;

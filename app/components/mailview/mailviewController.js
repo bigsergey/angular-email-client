@@ -14,7 +14,7 @@
         $stateProvider
             .state('app.view', {
                 url: '/view/:emailid',
-                templateUrl: './app/mailview/mailviewView.html',
+                templateUrl: './app/components/mailview/mailviewView.html',
                 controller: module.mailviewController.name + ' as mailview',
                 resolve: {
                     email: function($http, $stateParams) {

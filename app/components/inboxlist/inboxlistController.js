@@ -1,21 +1,21 @@
 (function() {
     var module = {
-        name: 'angularEmailClient.maillist',
+        name: 'angularEmailClient.inboxlist',
         dependencies: [],
         config: {
             providers: ['$stateProvider', '$urlRouterProvider']
         },
-        maillistController: {
-            name: 'maillistController',
+        inboxlistController: {
+            name: 'inboxlistController',
             injectables: ['page', 'emails', '$http', '$interval']
         }
     };
-    var MaillistConfig = function($stateProvider, $urlRouterProvider) {
+    var InboxlistConfig = function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('app.inbox', {
                 url: '/inbox',
-                templateUrl: './app/maillist/inboxlist.html',
-                controller: module.maillistController.name + ' as maillist',
+                templateUrl: './app/components/inboxlist/inboxlist.html',
+                controller: module.inboxlistController.name + ' as inboxlist',
                 resolve: {
                     emails: function($http) {
                         return $http({
@@ -32,34 +32,13 @@
                         };
                     }
                 }
-            })
-            .state('app.sent', {
-                url: '/sent',
-                templateUrl: './app/maillist/sentlist.html',
-                controller: module.maillistController.name + ' as maillist',
-                resolve: {
-                    emails: function($http) {
-                        return $http({
-                                method: 'get',
-                                url: '/api/sent'
-                            })
-                            .then(function(data) {
-                                return data.data;
-                            });
-                    },
-                    page: function() {
-                        return {
-                            title: 'sent mails'
-                        };
-                    }
-                }
             });
     };
 
-    MaillistConfig.$provide = module.config.providers;
+    InboxlistConfig.$provide = module.config.providers;
 
 
-    var maillistController = function(page, emails, $http, $interval, $filter) {
+    var InboxlistController = function(page, emails, $http, $interval, $filter) {
         var self = this;
         self.title = page.title;
         self.emails = emails;
@@ -98,9 +77,9 @@
         $interval(updateEmails, (updateTime * 60000));
     };
 
-    maillistController.$inject = module.maillistController.injectables;
+    InboxlistController.$inject = module.inboxlistController.injectables;
 
     angular.module(module.name, module.dependencies)
-        .config(MaillistConfig)
-        .controller(module.maillistController.name, maillistController);
+        .config(InboxlistConfig)
+        .controller(module.inboxlistController.name, InboxlistController);
 }());

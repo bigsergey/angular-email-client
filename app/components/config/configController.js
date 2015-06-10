@@ -14,7 +14,7 @@
         $stateProvider
             .state('app.config', {
                 url: '/config',
-                templateUrl: './app/config/configView.html',
+                templateUrl: './app/components/config/configView.html',
                 controller: module.configviewController.name + ' as configview'
 
             });
