@@ -1,0 +1,8 @@
+<div class="searcher">
+    <input type="text" placeholder="Find a email" ng-model="bindModel" ng-focus="hideAutocomplete = false"/>
+    <div class="autocomplete" ng-hide="hideAutocomplete">
+        <div class="tag" ng-repeat="value in searchHistory | filter:bindModel track by $index" ng-show="bindModel" ng-click="setCurrentValue(value)">
+            {{value}}
+        </div>
+    </div>
+</div>

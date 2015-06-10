@@ -32,6 +32,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-watch": "^4.2.4",
-    "main-bower-files": "^2.8.0"
+    "main-bower-files": "^2.8.0",
+    "proxy-middleware": "^0.12.0"
   }
 }

@@ -1,0 +1,16 @@
+<form class="mail view" novalidate name="form" ng-submit="form.$valid && createmail.sendEmail()">
+	<div>
+		<label for="emails">To:</label>
+		<input type="text" name="emails" validate-emails ng-model="createmail.email.receivers"/>
+		<span ng-show="form.emails.$error.emaillist && (form.$submitted || form.emails.$touched)">Not mail list! Use space, comma or semicolon to separate emails.</span>
+	</div>
+	<div>
+		<label for="title">Title:</label>
+		<input type="text" ng-model="createmail.email.title" name="title" required/>
+	</div>
+	<div>
+		<label for="content">Content:</label>
+		<textarea name="content" ng-model="createmail.email.content" required></textarea>
+	</div>
+	<input type="submit" value="Send" />
+</form>

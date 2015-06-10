@@ -1,0 +1,21 @@
+<div class="mail view">
+	<div>
+		<label for="sender">Sender:</label>
+		<input type="text" ng-model="mailview.email.sender" name="sender"/>
+	</div>
+	<div>
+		<label for="title">Title:</label>
+		<input type="text" ng-model="mailview.email.title" name="title"/>
+	</div>
+	<div>Received: {{mailview.email.received | date:'medium'}}</div>
+	<div>
+		<label for="content">Content:</label>
+		<textarea name="content" ng-model="mailview.email.content"></textarea>
+	</div>
+	<button>
+		<a ui-sref="app.create({emailid: mailview.email.id})">Respond</a>
+	</button>
+	<button ng-click="mailview.deleteMe()">
+		Delete this email
+	</button>
+</div>
