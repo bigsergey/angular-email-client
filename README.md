@@ -37,7 +37,7 @@ npm install
 bower install
 gulp
 ```
-Applcation is avialable at [http://localhost:8000](http://localhost:8000).
+Application is avialable at [http://localhost:8000](http://localhost:8000).
 
 Don't forget to run mail server:
 
