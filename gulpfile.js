@@ -15,7 +15,7 @@ var onError = function(err) {
 };
 
 gulp.task('jshint', function() {
-    return gulp.src(['./app/*.js', './app/*/*.js'])
+    return gulp.src(['./app/*.js','./app/**/*.js'])
         .pipe(plumber({
             errorHandler: onError
         }))
@@ -45,7 +45,7 @@ gulp.task('bower-files', function() {
 
 
 gulp.task('concat', function() {
-    return gulp.src(['./app/*.js', './app/*/*.js'])
+    return gulp.src(['./app/*.js', './app/**/*.js'])
         .pipe(plumber({
             errorHandler: onError
         }))
@@ -59,7 +59,7 @@ gulp.task('concat', function() {
 
 gulp.task('watch', function() {
 
-    gulp.watch(['./app/*.js', './app/*/*.js'], ['jshint', 'concat']);
+    gulp.watch(['./app/*.js', './app/**/*.js'], ['jshint', 'concat']);
 
     watch(['./app/**', './assets/**', './index.html']).pipe(connect.reload());
 });
@@ -78,4 +78,4 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('default', ['bower-files', 'connect', 'watch']);
+gulp.task('default', ['jshint', 'concat', 'bower-files', 'connect', 'watch']);
