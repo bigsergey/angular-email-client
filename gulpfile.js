@@ -40,7 +40,7 @@ gulp.task('jshint', function() {
 gulp.task('bower-files', function() {
     return gulp.src(mainGulpBowerFiles())
         .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('./js/'));
+        .pipe(gulp.dest('./dist/'));
 });
 
 
@@ -51,7 +51,7 @@ gulp.task('concat', function() {
         }))
         .pipe(concat('main.js'))
         .pipe(angularFilesort())
-        .pipe(gulp.dest('./js/'))
+        .pipe(gulp.dest('./dist/'))
         .pipe(notify({
             message: 'Concat task complete!'
         }));
